@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 
-
 import sys
 import time
 import requests
@@ -18,7 +17,7 @@ def def_handler(sig, frame):
 signal.signal(signal.SIGINT, def_handler)
 
 #Variable Global
-main_url = "http://10.10.10.191/admin/"
+main_url = "http://10.10.10.191/admin/login.php"
 
 
 def makeRequest():
